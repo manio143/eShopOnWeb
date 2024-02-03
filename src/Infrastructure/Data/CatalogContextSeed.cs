@@ -95,7 +95,19 @@ public class CatalogContextSeed
                 new(1,5, "Cup<T> White Mug", "Cup<T> White Mug", 12, "http://catalogbaseurltobereplaced/images/products/9.png"),
                 new(3,2, ".NET Foundation Sheet", ".NET Foundation Sheet", 12, "http://catalogbaseurltobereplaced/images/products/10.png"),
                 new(3,2, "Cup<T> Sheet", "Cup<T> Sheet", 8.5M, "http://catalogbaseurltobereplaced/images/products/11.png"),
-                new(2,5, "Prism White TShirt", "Prism White TShirt", 12, "http://catalogbaseurltobereplaced/images/products/12.png")
+                new(2,5, "Prism White TShirt (Premium)", "Prism White TShirt (Premium)", 22, "http://catalogbaseurltobereplaced/images/products/12.png"),
+                new(2,2, ".NET Bot Black Sweatshirt (Premium)", ".NET Bot Black Sweatshirt (Premium)", 29.5M,  "http://catalogbaseurltobereplaced/images/products/1.png"),
+                new(1,2, ".NET Black & White Mug (Premium)", ".NET Black & White Mug (Premium)", 18.50M, "http://catalogbaseurltobereplaced/images/products/2.png"),
+                new(2,5, "Prism White T-Shirt (Premium)", "Prism White T-Shirt (Premium)", 22,  "http://catalogbaseurltobereplaced/images/products/3.png"),
+                new(2,2, ".NET Foundation Sweatshirt (Premium)", ".NET Foundation Sweatshirt (Premium)", 22, "http://catalogbaseurltobereplaced/images/products/4.png"),
+                new(3,5, "Roslyn Red Sheet (Premium)", "Roslyn Red Sheet (Premium)", 18.5M, "http://catalogbaseurltobereplaced/images/products/5.png"),
+                new(2,2, ".NET Blue Sweatshirt (Premium)", ".NET Blue Sweatshirt (Premium)", 22, "http://catalogbaseurltobereplaced/images/products/6.png"),
+                new(2,5, "Roslyn Red T-Shirt (Premium)", "Roslyn Red T-Shirt (Premium)",  22, "http://catalogbaseurltobereplaced/images/products/7.png"),
+                new(2,5, "Kudu Purple Sweatshirt (Premium)", "Kudu Purple Sweatshirt (Premium)", 18.5M, "http://catalogbaseurltobereplaced/images/products/8.png"),
+                new(1,5, "Cup<T> White Mug (Premium)", "Cup<T> White Mug (Premium)", 22, "http://catalogbaseurltobereplaced/images/products/9.png"),
+                new(3,2, ".NET Foundation Sheet (Premium)", ".NET Foundation Sheet (Premium)", 22, "http://catalogbaseurltobereplaced/images/products/10.png"),
+                new(3,2, "Cup<T> Sheet (Premium)", "Cup<T> Sheet (Premium)", 18.5M, "http://catalogbaseurltobereplaced/images/products/11.png"),
+                new(2,5, "Prism White TShirt (Premium)", "Prism White TShirt (Premium)", 22, "http://catalogbaseurltobereplaced/images/products/12.png")
             };
     }
 }

@@ -30,7 +30,7 @@ public class CachedCatalogViewModelService : ICatalogViewModelService
 
     public async Task<CatalogIndexViewModel> GetCatalogItems(int pageIndex, int itemsPage, int? brandId, int? typeId)
     {
-        var cacheKey = CacheHelpers.GenerateCatalogItemCacheKey(pageIndex, Constants.ITEMS_PER_PAGE, brandId, typeId);
+        var cacheKey = CacheHelpers.GenerateCatalogItemCacheKey(pageIndex, itemsPage, brandId, typeId);
 
         return (await _cache.GetOrCreateAsync(cacheKey, async entry =>
         {
