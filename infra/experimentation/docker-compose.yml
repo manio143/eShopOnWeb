@@ -1,0 +1,41 @@
+version: "3"
+services:
+  growthbook-mongo:
+    image: "mongo:latest"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo_data:/data/db
+  growthbook:
+    image: "growthbook/growthbook:latest"
+    ports:
+      - "3000:3000"
+      - "3100:3100"
+    depends_on:
+      - growthbook-mongo
+    environment:
+      - MONGODB_URI=mongodb://root:password@growthbook-mongo:27017/growthbook?authSource=admin
+    volumes:
+      - uploads:/usr/local/src/app/packages/back-end/uploads
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=@someThingComplicated1234
+      - MSSQL_PID=Developer
+    ports:
+      - 1433:1433
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P @someThingComplicated1234 -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      retries: 10
+      start_period: 10s
+      timeout: 3s
+volumes:
+  uploads:
+  mongo_data:
+  sqlserver_data:  

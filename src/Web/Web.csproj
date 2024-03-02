@@ -23,6 +23,7 @@
     <PackageReference Include="Azure.Identity" />
     <PackageReference Include="MediatR" />
     <PackageReference Include="BuildBundlerMinifier" Condition="'$(Configuration)'=='Release'" />
+    <PackageReference Include="Excos.Options.GrowthBook" />
     <PackageReference Include="Microsoft.Extensions.Options.Contextual" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />

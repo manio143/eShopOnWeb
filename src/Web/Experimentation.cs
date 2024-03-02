@@ -1,3 +1,4 @@
+﻿using Excos.Options;
 using Microsoft.Extensions.Options.Contextual;
 
 namespace Microsoft.eShopWeb.Web;
@@ -5,21 +6,29 @@ namespace Microsoft.eShopWeb.Web;
 public class CatalogDisplayOptions
 {
     public int ItemsPerPage { get; set; } = Constants.ITEMS_PER_PAGE;
+
+    public FeatureMetadata? FeatureMetadata { get; set; }
 }
 
 public static class ContextualExtensions
 {
-    public static string GetOrCreateExperimentSession(this HttpContext ctx)
+    public static Guid GetOrCreateExperimentSession(this HttpContext ctx)
     {
         const string cookieName = "eShopExp";
         string? sessionId;
+        Guid parsedSessionId;
         if (!ctx.Request.Cookies.TryGetValue(cookieName, out sessionId))
         {
-            sessionId = Guid.NewGuid().ToString();
+            parsedSessionId = Guid.NewGuid();
+            sessionId = parsedSessionId.ToString();
             ctx.Response.Cookies.Append(cookieName, sessionId);
         }
+        else
+        {
+            parsedSessionId = Guid.Parse(sessionId);
+        }
 
-        return sessionId;
+        return parsedSessionId;
     }
 
     public static StoreOptionsContext ExtractStoreOptionsContext(this HttpContext ctx)
@@ -31,5 +40,5 @@ public static class ContextualExtensions
 [OptionsContext]
 public partial struct StoreOptionsContext
 {
-    public string? SessionId { get; set; }
+    public Guid SessionId { get; set; }
 }

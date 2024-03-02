@@ -5,6 +5,9 @@ using BlazorAdmin;
 using BlazorAdmin.Services;
 using Blazored.LocalStorage;
 using BlazorShared;
+using Excos.Options.Contextual;
+using Excos.Options.GrowthBook;
+using Excos.Options.Providers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Identity;
@@ -112,6 +115,16 @@ builder.Services.AddScoped<HttpService>();
 builder.Services.AddBlazorServices();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.ConfigureExcos<CatalogDisplayOptions>("CatalogDisplay");
+//builder.Services.BuildFeature("TestRollout")
+//    .Configure(feature => feature.AllocationUnit = nameof(StoreOptionsContext.SessionId))
+//    .Rollout<CatalogDisplayOptions>(75 /*percent*/, (options, _) => options.ItemsPerPage = 20)
+//    .Save();
+builder.Services.ConfigureExcosWithGrowthBook();
+builder.Services.AddOptions<GrowthBookOptions>().BindConfiguration("GrowthBook");
+
+builder.Services.AddScoped<IExperimentationService, ExperimentationService>();
 
 var app = builder.Build();
 

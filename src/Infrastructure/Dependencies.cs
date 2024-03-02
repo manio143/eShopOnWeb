@@ -23,6 +23,9 @@ public static class Dependencies
          
             services.AddDbContext<AppIdentityDbContext>(options =>
                 options.UseInMemoryDatabase("Identity"));
+
+            services.AddDbContext<ExperimentationContext>(c =>
+               c.UseInMemoryDatabase("Experimentation"));
         }
         else
         {
@@ -35,6 +38,9 @@ public static class Dependencies
             // Add Identity DbContext
             services.AddDbContext<AppIdentityDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("IdentityConnection")));
+
+            services.AddDbContext<ExperimentationContext>(c =>
+               c.UseSqlServer(configuration.GetConnectionString("CatalogConnection"))); // work within catalog database
         }
     }
 }
